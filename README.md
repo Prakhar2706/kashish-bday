@@ -2,6 +2,8 @@
 
 A static birthday site — plain HTML, CSS and JS. No build step, no dependencies.
 
+**Live:** https://prakhar2706.github.io/kashish-bday/
+
 ## Run locally
 ```bash
 python3 -m http.server 8899
@@ -21,6 +23,10 @@ Chapter 5 letter. Nothing else needs touching.
   ever missing, the site falls back to a synthesised melody in the browser.
 
 ## Publishing on GitHub Pages
+Already set up at https://prakhar2706.github.io/kashish-bday/ — every push to `main`
+redeploys automatically.
+
+To set this up on a fresh repo:
 1. Push this folder as the repo root.
 2. Settings → Pages → Source: *Deploy from a branch*, branch `main`, folder `/`.
 3. `.nojekyll` is already here so `assets/` is served as-is.
