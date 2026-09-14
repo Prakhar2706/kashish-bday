@@ -274,7 +274,15 @@ function tilt() {
    ========================================================= */
 const Carousel = (() => {
   const ring = $('#ring'), stage = $('#ringStage');
-  const photos = C.photos;
+  // fresh order on every visit, so the ring never feels like the same gallery twice
+  const photos = (() => {
+    const a = C.photos.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  })();
   const N = photos.length;
   let cards = [], pos = 0, target = 0, vel = 0, dragging = false, autoplay = true, raf;
 
@@ -293,7 +301,7 @@ const Carousel = (() => {
         </div>`;
       card.addEventListener('click', () => {
         const k = wrap(i - pos);
-        if (Math.abs(k) < 0.55) Lightbox.open(i);
+        if (Math.abs(k) < 0.55) Lightbox.open(i, photos);
         else { target = pos + k; autoplay = false; }
       });
       cards.push(card);
@@ -389,7 +397,7 @@ const Carousel = (() => {
       if (travel < 6) {
         if (tapCard > -1) {
           const k = wrap(tapCard - pos);
-          if (Math.abs(k) < 0.55) Lightbox.open(tapCard);
+          if (Math.abs(k) < 0.55) Lightbox.open(tapCard, photos);
           else target = Math.round(pos + k);
         }
         return;
