@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Happy Birthday, Kashish ♡</title>
+<meta name="description" content="A little corner of the internet built for one person." />
+<meta name="theme-color" content="#fff1f6" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎀</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Caveat:wght@500;700&family=Outfit:wght@200;400;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="is-locked">
+
+<!-- ============ ambient layers ============ -->
+<canvas id="petals" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="glowfield" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- ============ gate ============ -->
+<div id="gate">
+  <div class="gate-inner">
+    <div class="gate-ribbon">🎀</div>
+    <p class="gate-kicker">kisi ne tere liye kuch chhoda hai</p>
+    <h1 class="gate-name" id="gateName">Kashish</h1>
+    <button id="openBtn" class="gate-btn">
+      <span>gift kholo</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </button>
+    <p class="gate-note">sound on karke dekh 🎧</p>
+  </div>
+</div>
+
+<!-- ============ music ============ -->
+<div id="player" class="player" aria-label="Music player">
+  <button id="musicBtn" class="music-btn" aria-pressed="false" title="Play / pause music">
+    <span class="eq"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <div class="player-meta">
+    <span class="player-title" id="playerTitle">for you</span>
+    <span class="player-sub" id="playerSub">tap to play</span>
+  </div>
+</div>
+<audio id="audio" loop preload="auto" src="assets/audio/dreamy-loop.wav"></audio>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow" id="dateBadge">14 September</p>
+        <h1 class="bigname" aria-label="Happy birthday Kashish">
+          <span class="bigname-pre">happy birthday,</span>
+          <span class="bigname-main" id="nameSplit">Kashish</span>
+        </h1>
+        <p class="hero-rotator">
+          <span class="rot-static">tu hai</span>
+          <span class="rot-wrap"><span id="rotator"></span><i class="caret"></i></span>
+        </p>
+        <p class="hero-lede">
+          Chhabbis photos, kuch hazaar yaadein, aur ek bohot buri tarah chhupaya hua
+          fact ki tu kitni important hai. Aaram se scroll kar — sab jaan boojh ke banaya hai.
+        </p>
+        <a href="#carousel" class="cta">
+          <span>scroll kar</span>
+          <em></em>
+        </a>
+      </div>
+
+      <div class="hero-photo">
+        <div class="polaroid" id="heroPolaroid">
+          <div class="polaroid-img"><img id="heroImg" alt="Kashish" /></div>
+          <p class="polaroid-cap">birthday girl ✿</p>
+          <span class="tape tape-a"></span>
+          <span class="tape tape-b"></span>
+        </div>
+        <div class="orbit" aria-hidden="true"><span>♡</span><span>✿</span><span>✧</span></div>
+      </div>
+    </div>
+
+    <div class="scrollhint" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ============ CAROUSEL ============ -->
+  <section class="section carousel-section" id="carousel">
+    <header class="sec-head reveal">
+      <p class="sec-kicker">chapter 01</p>
+      <h2 class="sec-title">ghumne wali gallery</h2>
+      <p class="sec-sub">Ghuma, pheko, aur kisi bhi photo pe click kar ke bada dekh.</p>
+    </header>
+
+    <div class="ring-stage" id="ringStage">
+      <div class="ring-shadow" aria-hidden="true"></div>
+      <div class="ring" id="ring"></div>
+      <button class="ring-nav prev" id="ringPrev" aria-label="Previous photo">‹</button>
+      <button class="ring-nav next" id="ringNext" aria-label="Next photo">›</button>
+    </div>
+
+    <div class="ring-foot">
+      <p class="ring-caption" id="ringCaption">&nbsp;</p>
+      <div class="ring-count"><span id="ringIdx">1</span><i>/</i><span id="ringTotal">1</span></div>
+      <p class="ring-tip">drag &nbsp;·&nbsp; swipe &nbsp;·&nbsp; arrow keys</p>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section class="section timeline-section" id="timeline">
+    <header class="sec-head reveal">
+      <p class="sec-kicker">chapter 02</p>
+      <h2 class="sec-title">kuch baatein tere baare mein</h2>
+      <p class="sec-sub">Jo bol ke nahi kehta, wo yahan likh diya.</p>
+    </header>
+    <div class="timeline" id="timelineList">
+      <div class="tl-spine" aria-hidden="true"><i id="tlProgress"></i></div>
+    </div>
+  </section>
+
+  <!-- ============ REASONS ============ -->
+  <section class="section reasons-section" id="reasons">
+    <header class="sec-head reveal">
+      <p class="sec-kicker">chapter 03</p>
+      <h2 class="sec-title">reasons ki tu mere saath phasi hai</h2>
+      <p class="sec-sub">Saari cards palat. Koi bhi galat nahi hai.</p>
+    </header>
+    <div class="cards" id="cards"></div>
+    <p class="cards-progress"><span id="flipCount">0</span> of <span id="flipTotal">0</span> khul gaye</p>
+  </section>
+
+  <!-- ============ CAKE ============ -->
+  <section class="section cake-section" id="cake">
+    <header class="sec-head reveal">
+      <p class="sec-kicker">chapter 04</p>
+      <h2 class="sec-title" id="wishTitle">make a wish</h2>
+      <p class="sec-sub" id="wishBody">Candles bujha de.</p>
+    </header>
+
+    <div class="cake-wrap reveal">
+      <div class="cake" id="cakeEl">
+        <div class="candles" id="candles"></div>
+        <div class="tier tier-top"><i class="drip"></i></div>
+        <div class="tier tier-mid"><i class="drip"></i></div>
+        <div class="tier tier-bot"><i class="drip"></i></div>
+        <div class="plate"></div>
+      </div>
+
+      <div class="cake-controls">
+        <button id="micBtn" class="btn-soft">🎤 mic se phoonk maar</button>
+        <button id="puffBtn" class="btn-soft">💨 ya bas yahan tap kar</button>
+        <p class="mic-status" id="micStatus"></p>
+      </div>
+
+      <div class="cake-done" id="cakeDone" hidden>
+        <h3>wish chali gayi ✧</h3>
+        <p>Ab poori honi hi chahiye. Rule hai.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LETTER ============ -->
+  <section class="section letter-section" id="letter">
+    <header class="sec-head reveal">
+      <p class="sec-kicker">chapter 05</p>
+      <h2 class="sec-title">wo baat jo bol ke nahi keh paya</h2>
+    </header>
+    <div class="paper reveal" id="paper">
+      <div class="paper-body" id="letterBody"></div>
+      <button id="letterBtn" class="btn-soft letter-btn">padh le →</button>
+    </div>
+  </section>
+
+  <!-- ============ END ============ -->
+  <footer class="end" id="end">
+    <div class="end-inner reveal">
+      <p class="end-kicker">bas itna hi</p>
+      <h2 class="end-name">happy birthday,<br /><span id="endName">Kashish</span></h2>
+      <button id="finaleBtn" class="btn-glow">ek baar phir 🎉</button>
+      <p class="end-sign" id="signOff"></p>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ============ lightbox ============ -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <figure class="lb-figure">
+    <img id="lbImg" alt="" />
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+</div>
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<script src="js/content.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
